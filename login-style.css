@@ -1,0 +1,97 @@
+/* Styles specific to the login page */
+body, html {
+    height: 100%;
+}
+
+body.login-page-body { /* Added a specific class to body for these styles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mm-light-gray); /* Using variable from updated-style.css */
+    padding-top: 40px; /* Padding from navbar if it were fixed, or just general padding */
+    padding-bottom: 40px;
+}
+
+.login-container {
+    background-color: var(--mm-white);
+    padding: 2.5rem;
+    border-radius: var(--mm-border-radius);
+    box-shadow: var(--mm-box-shadow);
+    width: 100%;
+    max-width: 420px;
+}
+
+.login-container h1 {
+    color: var(--mm-primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.75rem; /* Slightly smaller for login context */
+}
+
+.login-container .form-label {
+    font-weight: 600;
+    color: var(--mm-dark-gray);
+}
+
+.login-container .form-control {
+    border-radius: var(--mm-border-radius); /* Consistent border radius */
+}
+
+.login-container .form-control:focus {
+    border-color: var(--mm-secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--mm-secondary-rgb, 0, 166, 153), 0.25); /* Using secondary color for focus, added RGB version for rgba */
+}
+
+.login-container .btn-login { /* Using .btn-primary from updated-style.css should be enough, but if specific styling: */
+    /* background-color: var(--mm-primary-color);
+    border-color: var(--mm-primary-color);
+    color: var(--mm-white); */
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.05rem;
+}
+
+/* .btn-login:hover {
+    background-color: darken(var(--mm-primary-color), 10%);
+    border-color: darken(var(--mm-primary-color), 10%);
+} */
+
+.login-container .footer-link {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.login-container .footer-link a {
+    color: var(--mm-secondary-color);
+    text-decoration: none;
+}
+
+.login-container .footer-link a:hover {
+    text-decoration: underline;
+}
+
+/* For login messages */
+#loginMessage.alert {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--mm-border-radius);
+}
+
+#loginMessage.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+#loginMessage.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+#loginMessage.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
