@@ -1,0 +1,430 @@
+/* MM Tech - Updated Design Language */
+
+/* --------------------
+   0. Global & Imports
+   -------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+:root {
+  --mm-primary-color: #0A2540; /* Deep Navy */
+  --mm-secondary-color: #00A699; /* Vibrant Teal */
+  --mm-accent-color-light: #48E5C2; /* Lighter Teal for highlights */
+  --mm-light-gray: #F8F9FA;
+  --mm-medium-gray: #6C757D;
+  --mm-dark-gray: #212529;
+  --mm-white: #FFFFFF;
+  --mm-body-font: 'Open Sans', sans-serif;
+  --mm-heading-font: 'Montserrat', sans-serif;
+  --mm-border-radius: 0.5rem;
+  --mm-box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+body {
+  font-family: var(--mm-body-font);
+  color: var(--mm-dark-gray);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--mm-heading-font);
+  font-weight: 700;
+  color: var(--mm-primary-color);
+  line-height: 1.3; /* Added for better heading spacing */
+}
+
+a {
+  color: var(--mm-secondary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--mm-accent-color-light);
+  text-decoration: underline;
+}
+
+.btn {
+  font-family: var(--mm-heading-font);
+  border-radius: var(--mm-border-radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary, .btn-success /* Overriding Bootstrap's .btn-success to match our primary */ {
+  background-color: var(--mm-primary-color);
+  border-color: var(--mm-primary-color);
+  color: var(--mm-white);
+}
+
+.btn-primary:hover, .btn-success:hover {
+  background-color: darken(var(--mm-primary-color), 10%);
+  border-color: darken(var(--mm-primary-color), 10%);
+  color: var(--mm-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.btn-outline-secondary {
+  color: var(--mm-secondary-color);
+  border-color: var(--mm-secondary-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--mm-secondary-color);
+  border-color: var(--mm-secondary-color);
+  color: var(--mm-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+
+/* --------------------
+   1. Navigation Bar
+   -------------------- */
+.navbar {
+  background-color: var(--mm-light-gray) !important; /* Override Bootstrap bg-body-tertiary */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.navbar-brand {
+  font-family: var(--mm-heading-font);
+  font-weight: 700;
+  color: var(--mm-primary-color) !important; /* Important to override Bootstrap */
+  font-size: 1.75rem;
+}
+
+.navbar-brand svg {
+  fill: var(--mm-primary-color);
+  margin-right: 0.5rem;
+  vertical-align: -0.15em; /* Better alignment with text */
+}
+
+.nav-link {
+  font-family: var(--mm-body-font);
+  font-weight: 600;
+  color: var(--mm-dark-gray) !important; /* Important to override Bootstrap */
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--mm-secondary-color) !important;
+}
+
+.navbar .form-control {
+  border-radius: var(--mm-border-radius);
+}
+
+.navbar .btn-outline-success { /* Search button */
+  color: var(--mm-secondary-color);
+  border-color: var(--mm-secondary-color);
+  border-radius: var(--mm-border-radius);
+}
+
+.navbar .btn-outline-success:hover {
+  background-color: var(--mm-secondary-color);
+  border-color: var(--mm-secondary-color);
+  color: var(--mm-white);
+}
+
+.dropdown-menu {
+  border-radius: var(--mm-border-radius);
+  box-shadow: var(--mm-box-shadow);
+  border: 1px solid #eee;
+}
+
+.dropdown-item:hover {
+  background-color: var(--mm-secondary-color);
+  color: var(--mm-white) !important;
+}
+
+
+/* --------------------
+   2. Hero Section
+   -------------------- */
+.hero-section { /* We will add this class to the hero div */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.hero-section .display-4 {
+  font-weight: 700;
+  color: var(--mm-primary-color);
+}
+
+.hero-section .lead {
+  font-size: 1.15rem;
+  color: var(--mm-medium-gray);
+  max-width: 600px; /* Constrain line length for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-section .btn-lg {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+}
+
+.hero-section img.border {
+   border-color: #e0e0e0 !important; /* Softer border for the image */
+   box-shadow: var(--mm-box-shadow);
+}
+
+/* --------------------
+   3. Services Section / Features
+   -------------------- */
+.services-section { /* We will add this class */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.services-section .border-bottom {
+  border-bottom-color: var(--mm-accent-color-light) !important; /* Use accent for underline */
+  padding-bottom: 1rem !important;
+}
+
+.services-section h2.pb-2 {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+
+.services-section h2.pb-2 svg {
+  fill: var(--mm-primary-color);
+  margin-right: 0.75rem;
+  width: 32px; /* Adjust size as needed */
+  height: 32px;
+}
+
+.services-section .fw-bold.text-body-emphasis {
+    color: var(--mm-primary-color) !important;
+}
+
+.services-section .text-body-secondary {
+    color: var(--mm-medium-gray) !important;
+}
+
+.feature-icon-small {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--mm-border-radius);
+  background-color: var(--mm-secondary-color) !important; /* Override Bootstrap's text-bg-primary */
+  color: var(--mm-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon-small svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: var(--mm-white);
+}
+
+.services-section .col.d-flex.flex-column.gap-2 {
+  background-color: var(--mm-white);
+  padding: 1.5rem;
+  border-radius: var(--mm-border-radius);
+  box-shadow: var(--mm-box-shadow);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.services-section .col.d-flex.flex-column.gap-2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.services-section h4.fw-semibold {
+  color: var(--mm-primary-color);
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+/* --------------------
+   4. Carousel Section
+   -------------------- */
+.carousel-section { /* We will add this class */
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  background-color: var(--mm-light-gray); /* Light background for contrast */
+}
+#carouselExampleRide .carousel-item img {
+  max-height: 550px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: var(--mm-border-radius);
+}
+
+.carousel-caption {
+  background-color: rgba(10, 37, 64, 0.75); /* Semi-transparent Primary Color */
+  border-radius: var(--mm-border-radius);
+  padding: 1.5rem;
+  bottom: 5%; /* Adjust position */
+}
+
+.carousel-caption h5 {
+  font-family: var(--mm-heading-font);
+  color: var(--mm-white) !important; /* Ensure text is white */
+  font-weight: 700;
+}
+
+.carousel-caption p {
+  font-family: var(--mm-body-font);
+  color: var(--mm-light-gray) !important; /* Ensure text is light gray or white */
+  font-size: 1rem;
+}
+
+/* Override Bootstrap's default icon colors if needed, or use custom SVGs */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--mm-primary-color) !important; /* Ensure override */
+  border-radius: 50%;
+  padding: 0.5rem; /* Adjust padding for the icon visual size */
+  width: 2.5rem; /* Explicit width */
+  height: 2.5rem; /* Explicit height */
+  background-image: none; /* Remove default Bootstrap SVG to use our own or ::after */
+}
+
+/* Custom white SVG arrow for prev icon */
+.carousel-control-prev-icon::after {
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+  display: block;
+  width: 1.5rem; /* Size of the arrow itself */
+  height: 1.5rem; /* Size of the arrow itself */
+  margin: auto; /* Center the arrow */
+}
+
+/* Custom white SVG arrow for next icon */
+.carousel-control-next-icon::after {
+  content: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  display: block;
+  width: 1.5rem; /* Size of the arrow itself */
+  height: 1.5rem; /* Size of the arrow itself */
+  margin: auto; /* Center the arrow */
+}
+
+
+/* --------------------
+   5. Footer Section
+   -------------------- */
+footer.border-top {
+  border-top-color: var(--mm-accent-color-light) !important;
+  padding-top: 2.5rem !important;
+  padding-bottom: 1rem !important; /* Less padding at the very bottom */
+}
+
+footer p svg.bi-database-check, footer .navbar-brand svg { /* For the logo in footer */
+  width: 40px; /* Adjust size */
+  height: 40px;
+  fill: var(--mm-primary-color);
+  margin-right: 0.5rem;
+}
+footer p, footer .navbar-brand {
+  font-family: var(--mm-heading-font);
+  font-weight: 700;
+  color: var(--mm-primary-color) !important;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+
+footer h5 {
+  color: var(--mm-primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+footer .nav-link {
+  color: var(--mm-medium-gray) !important;
+  padding: 0.25rem 0 !important; /* Adjust padding */
+  font-weight: 400;
+}
+
+footer .nav-link:hover {
+  color: var(--mm-secondary-color) !important;
+  text-decoration: underline;
+}
+
+footer .text-body-secondary { /* Copyright text and social icons */
+  color: var(--mm-medium-gray) !important;
+}
+
+footer .list-unstyled svg {
+  fill: var(--mm-medium-gray);
+  transition: fill 0.2s ease-in-out;
+}
+
+footer .list-unstyled a:hover svg {
+  fill: var(--mm-secondary-color);
+}
+
+/* Specific styling for the two-part footer if we keep it */
+.footer-upper { /* Add this class to the first footer */
+  /* Styles specific to the upper part if needed */
+}
+
+.footer-lower { /* Add this class to the second footer */
+  padding-top: 1.5rem !important;
+  margin-top: 1.5rem !important;
+  border-top: 1px solid #e0e0e0 !important; /* Lighter border between footer parts */
+}
+
+
+/* --------------------
+   6. Utility & Overrides
+   -------------------- */
+.text-body-emphasis { /* Ensure this uses our primary color if not overridden by specific sections */
+  color: var(--mm-primary-color) !important;
+}
+
+/* Original inline styles from index.html - integrate or override */
+.feature-icon { /* From original inline styles - can be adapted or removed if covered by .feature-icon-small */
+  width: 4rem;
+  height: 4rem;
+  border-radius: .75rem; /* Slightly larger than our --mm-border-radius */
+  /* Decide if this specific style is still needed or if .feature-icon-small is enough */
+}
+
+.icon-square { /* From original inline styles */
+  width: 3rem;
+  height: 3rem;
+  border-radius: .75rem;
+}
+
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .1); } /* Soften shadows */
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .1); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .1); }
+
+.card-cover { /* From original inline styles */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Ensure Bootstrap's .bg-success is what we want or override it if used */
+.bg-success {
+    background-color: var(--mm-secondary-color) !important; /* Example: make it our accent color */
+    /* Or use Bootstrap's green if appropriate for "success" messages */
+}
+
+/* Address specific image path issue from original HTML, though this is better fixed in HTML */
+/* Example: if an image had a bad path, CSS can't fix the path but could hide the broken image icon */
+img[src^="/Section 11-Bootsratp/"] {
+  /* This is just a note; path fixing is for HTML. Could hide if broken: display:none; */
+  border: 2px solid red; /* Highlight images with problematic paths for debugging */
+}
+
+/* Cleaning up the double footer structure a bit */
+/* We might decide to merge them in HTML, but for now, let's style them distinctly if they remain separate */
+footer.row.py-5.my-5.border-top { /* Upper footer */
+    margin-bottom: 0 !important; /* Remove bottom margin if lower footer follows directly */
+    padding-bottom: 2rem !important;
+}
+footer.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top { /* Lower footer */
+    margin-top: 0 !important; /* Remove top margin */
+    padding-top: 2rem !important;
+    border-top-color: #dee2e6 !important; /* Standard Bootstrap border */
+}
+
+```
